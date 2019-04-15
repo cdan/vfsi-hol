@@ -17,7 +17,8 @@ vke cluster auth setup cdan-test
 ### 测试代码库
 https://github.com/cdan/vcas-demo
 
-
+![]CICD.png
+*** CI-CD Workflow
 
 ### 如何从Kubernetes cluster内部访问外部的需要登录的镜像仓库
 * 创建secret，https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
@@ -53,7 +54,7 @@ spec:
             - name: workspace-vol
               mountPath: /workspace
       containers:
-      ＃ kaniko是一個pre-packaged的容器，只要給它三個參數（Ｄockerfile、Ｃompile位置、與push的位置）
+      ＃ kaniko是一個pre-packaged的容器，只要給它三個參數（Dockerfile、Ｃompile位置、與Push的位置）
       - name: kaniko
         image: gcr.io/kaniko-project/executor:latest
         args: ["--dockerfile=/workspace/Dockerfile",
