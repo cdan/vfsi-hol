@@ -17,8 +17,7 @@ vke cluster auth setup cdan-test
 ### 测试代码库
 https://github.com/cdan/vcas-demo
 
-![]CICD.png
-*** CI-CD Workflow
+![CI-CD Workflow](https://github.com/cdan/vfsi-hol/blob/master/CICD.png)
 
 ### 如何从Kubernetes cluster内部访问外部的需要登录的镜像仓库
 * 创建secret，https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
