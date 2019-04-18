@@ -21,6 +21,8 @@ git config --global user.email xxx@xxx.com
 
 -m表示注释,必须要有！
 
+### 拉取远端变更到本地并合并
+> git pull <br>
 
 ### 推送变更到远端
 > git push origin master <br>
