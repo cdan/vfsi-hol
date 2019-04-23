@@ -1,4 +1,5 @@
 
+![Jenkins-X](https://github.com/cdan/vfsi-hol/blob/master/pictures/jx.png)
 Jenkins-X是一個高度整合的CI/CD平台。主要透過Jenkins (Kubernetes plugin)、Nexus、Docker Repository、與Helm Chart等整合成一個完整的CI/CD Framework。
 1. 安裝方式：
     * 預先準備：
@@ -13,13 +14,14 @@ Jenkins-X是一個高度整合的CI/CD平台。主要透過Jenkins (Kubernetes p
 2. 專案設定流程：
     * 通過jx import 或是jx create quickstart -l {language}
     * 若是一個stateless的程式，jx import需要注意和原本專案相同即可。若為Multi-tier的架構，需要額外在Helm Chart裡面，進行連接的設定
+
 3. 使用流程：
            3-1. Dev->Staging
 * 開發者提交Source Code
 * Git通知Jx Controller
 * Jx Controller Build/Test/Push到Chart Museum
 * Pipeline 自動提交一張PR給Staging 的Github
-
+    ![From Development to Staging](https://github.com/cdan/vfsi-hol/blob/master/pictures/jx-d-s.png)
 由於這個程式
            3-2. Staging->Production
-
+    ![From Staging to Production](https://github.com/cdan/vfsi-hol/blob/master/pictures/jx-s-p.png)
