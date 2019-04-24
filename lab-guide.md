@@ -7,7 +7,7 @@
 #### 如何连接vke上的Kubernetes集群？
 ```
 export orgid=93a9beeb-d761-4551-bdba-e1f8b99fb995 
-export token=038bd68d-8fd9-4bef-a452-f3bc1aa0aece
+export token=270fa114-16ca-417b-9186-559d7fcdb23b
 vke account login -t $orgid -r $token
 vke cluster auth setup cdan-test
 ```
