@@ -13,7 +13,14 @@ vke cluster auth setup cdan-test
 ```
 然后就可以通过标准的kubectl操作了。
 * 没人按照自己的名字创建一个namespaces，后续的应用就部署到该namespace。
->> kubectl create namespace YOUR_NAME
+> kubectl create namespace YOUR_NAME
+
+* 设置默认的namespace
+```
+kubectl config set-context $(kubectl config current-context) --namespace=YOUR_NAME
+# Validate it
+kubectl config view | grep namespace
+```
 
 #### 如何在codestream里添加kubernetes的endpoint
 ```
