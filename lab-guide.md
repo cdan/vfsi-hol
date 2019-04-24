@@ -13,6 +13,14 @@ vke cluster auth setup cdan-test
 ```
 然后就可以通过标准的kubectl操作了。
 
+#### 如何在codestream里添加github的endpoint
+codestream页面 -> Endpoints -> add Endpoint 选择类型Git
+
+认证类型选择private token
+
+* token来源
+github页面 -> 头像图标 -> settings -> developer settings -> personal access token -> generate new token
+
 
 ### 测试代码库
 https://github.com/cdan/vcas-demo
