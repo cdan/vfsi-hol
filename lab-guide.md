@@ -98,7 +98,7 @@ spec:
           sources:
           ＃由docker-secret中，取出.dockerconfigjson的欄位，設定掛起來的路徑為.docker/config.json
           - secret:
-              name: docker-secret
+              name: docker-secret-YOURNAME
               items:
               - key: .dockerconfigjson
                 path: .docker/config.json
