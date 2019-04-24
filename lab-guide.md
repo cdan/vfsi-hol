@@ -7,11 +7,38 @@
 #### 如何连接vke上的Kubernetes集群？
 ```
 export orgid=93a9beeb-d761-4551-bdba-e1f8b99fb995 
-export token=038bd68d-8fd9-4bef-a452-f3bc1aa0aece
+export token=270fa114-16ca-417b-9186-559d7fcdb23b
 vke account login -t $orgid -r $token
 vke cluster auth setup cdan-test
 ```
 然后就可以通过标准的kubectl操作了。
+* 每人按照自己的名字创建一个namespaces，后续的应用就部署到该namespace。
+> kubectl create namespace YOUR_NAME
+
+* 设置默认的namespace
+```
+kubectl config set-context $(kubectl config current-context) --namespace=YOUR_NAME
+# Validate it
+kubectl config view | grep namespace
+```
+
+#### 如何在codestream里添加kubernetes的endpoint
+```
+kubectl create sa test-sa -n YOUR_NAME
+kubectl get secret
+kubectl describe secret test-sa-token* -n YOUR_NAME
+```
+copy the token for later usage.
+
+在codestream页面添加kubernetes endpoint 选择认证类型token，把刚才的生成的token copy进去。
+
+#### 如何在codestream里添加github的endpoint
+codestream页面 -> Endpoints -> add Endpoint 选择类型Git
+
+认证类型选择private token
+
+* token来源
+github页面 -> 头像图标 -> settings -> developer settings -> personal access token -> generate new token
 
 
 ### 测试代码库
@@ -22,11 +49,11 @@ https://github.com/cdan/vcas-demo
 ### 如何从Kubernetes cluster内部访问外部的需要登录的镜像仓库
 * 创建secret，https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 ```
-kubectl create secret docker-registry docker-secret --docker-server=<your-registry-server> --docker-username=<your-name> --docker-password=<your-pword> --docker-email=<your-email>
+kubectl create secret docker-registry docker-secret-YOURNAME -n YOUR_NAMESPACE --docker-server=<your-registry-server> --docker-username=<your-name> --docker-password=<your-pword> --docker-email=<your-email>
 ```
 以dockerhub為例：
 ```
-kubectl create secret docker-registry docker-secret --docker-server=https://index.docker.io/v1/ --docker-username=[你的帳號] --docker-password=[密碼] --docker-email=[必要，但沒被使用]
+kubectl create secret docker-registry docker-secret-YOURNAME -n YOUR_NAMESPACE --docker-server=https://index.docker.io/v1/ --docker-username=[你的帳號] --docker-password=[密碼] --docker-email=[必要，但沒被使用]
 ```
 
 * 在yaml中使用该secret访问外部镜像仓库，见kaniko.yaml 。
@@ -71,7 +98,7 @@ spec:
           sources:
           ＃由docker-secret中，取出.dockerconfigjson的欄位，設定掛起來的路徑為.docker/config.json
           - secret:
-              name: docker-secret
+              name: docker-secret-YOURNAME
               items:
               - key: .dockerconfigjson
                 path: .docker/config.json
