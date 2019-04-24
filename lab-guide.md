@@ -15,6 +15,16 @@ vke cluster auth setup cdan-test
 * 没人按照自己的名字创建一个namespaces，后续的应用就部署到该namespace。
 >> kubectl create namespace YOUR_NAME
 
+#### 如何在codestream里添加kubernetes的endpoint
+```
+kubectl create sa test-sa -n YOUR_NAME
+kubectl get secret
+kubectl describe secret test-sa-token* -n YOUR_NAME
+```
+copy the token for later usage.
+
+在codestream页面添加kubernetes endpoint 选择认证类型token，把刚才的生成的token copy进去。
+
 #### 如何在codestream里添加github的endpoint
 codestream页面 -> Endpoints -> add Endpoint 选择类型Git
 
