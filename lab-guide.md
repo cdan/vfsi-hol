@@ -49,11 +49,11 @@ https://github.com/cdan/vcas-demo
 ### 如何从Kubernetes cluster内部访问外部的需要登录的镜像仓库
 * 创建secret，https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 ```
-kubectl create secret docker-registry docker-secret --docker-server=<your-registry-server> --docker-username=<your-name> --docker-password=<your-pword> --docker-email=<your-email>
+kubectl create secret docker-registry docker-secret-YOURNAME -n YOUR_NAMESPACE --docker-server=<your-registry-server> --docker-username=<your-name> --docker-password=<your-pword> --docker-email=<your-email>
 ```
 以dockerhub為例：
 ```
-kubectl create secret docker-registry docker-secret --docker-server=https://index.docker.io/v1/ --docker-username=[你的帳號] --docker-password=[密碼] --docker-email=[必要，但沒被使用]
+kubectl create secret docker-registry docker-secret-YOURNAME -n YOUR_NAMESPACE --docker-server=https://index.docker.io/v1/ --docker-username=[你的帳號] --docker-password=[密碼] --docker-email=[必要，但沒被使用]
 ```
 
 * 在yaml中使用该secret访问外部镜像仓库，见kaniko.yaml 。
