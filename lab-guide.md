@@ -12,7 +12,7 @@ vke account login -t $orgid -r $token
 vke cluster auth setup cdan-test
 ```
 然后就可以通过标准的kubectl操作了。
-* 没人按照自己的名字创建一个namespaces，后续的应用就部署到该namespace。
+* 每人按照自己的名字创建一个namespaces，后续的应用就部署到该namespace。
 > kubectl create namespace YOUR_NAME
 
 * 设置默认的namespace
