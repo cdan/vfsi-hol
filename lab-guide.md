@@ -30,6 +30,8 @@ kubectl describe secret test-sa-token* -n YOUR_NAME
 ```
 copy the token for later usage.
 
+Kubernetes cluster URL:
+
 https://api.cdan-test-c23cfd64-12dd-11e9-958c-0a8a1b3b0536.93a9beeb-d761-4551-bdba-e1f8b99fb995.vke-user.com:443
 
 
