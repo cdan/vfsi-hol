@@ -1,6 +1,6 @@
 
 ![Jenkins-X](https://github.com/cdan/vfsi-hol/blob/master/pictures/jx.png)
-Jenkins-X是一個高度整合的CI/CD平台。主要透過Jenkins (Kubernetes plugin)、Nexus、Docker Repository、與Helm Chart等整合成一個完整的CI/CD Framework。
+Jenkins-X(JX)是一個高度整合的CI/CD平台。主要透過Jenkins (Kubernetes plugin)、Nexus、Docker Repository、與Helm Chart等整合成一個完整的CI/CD Framework。搭建好JX之後，可以快速通過command line的模式，達成CI/CD on-demand的機制。
 
 1. 安裝方式：
     * 預先準備：
@@ -21,19 +21,21 @@ Jenkins-X是一個高度整合的CI/CD平台。主要透過Jenkins (Kubernetes p
         chartMuseumAuth.yaml: 自動生成的chartMusuem密碼
 
 2. 專案設定流程：
-    * 通過jx import 或是jx create quickstart -l {language}
+    * 通過[jx import](https://jenkins-x.io/zh/developing/import/) 或是[jx create quickstart -l {language}](https://jenkins-x.io/zh/developing/create-quickstart/)
+
     * 若是一個stateless的程式，jx import需要注意和原本專案相同即可。若為Multi-tier的架構，需要額外在Helm Chart裡面，進行連接的設定。底下我們舉兩個例子，來看一下如何透過Quickstart來建置一個空白，但可以快速使用的範本（以js and Python為例）。另一個案例是通過jx import，並整合後端的一個Database來進行rsvp的回覆工作。
-    * 整個專案是通過Jenkinsfile來定義的CI/CD的Pipeline管線，http://jenkins.readbook.tw/jenkins/jenkins2/multibranch-pipeline/
-    
+    * 整個專案是通過Jenkinsfile來定義的CI/CD的[Pipeline管線](http://jenkins.readbook.tw/jenkins/jenkins2/multibranch-pipeline/)
 
 3. 使用流程：
+結合IDE使用：產生專案後，打開IDE (下圖以visual studio editor為例)。將該專案加入一個新的Workspace，通過git的plugin，任何帶有.git的資料夾，會自動連結對應的源代碼庫。
+
 由開發到測試：
-* 開發者提交Source Code
+* 開發者在IDE上提交Source Code
 * Git通知Jx Controller
 * Jx Controller Build/Test/Push到Chart Museum
 * Pipeline 自動提交一張PR給Staging 的Github
     ![From Development to Staging](https://github.com/cdan/vfsi-hol/blob/master/pictures/jx-d-s.png)
-由於這個程式
 
 由測試到生產環境：
+* 其實只有一個指令：jx promote [project-name] --version [version-number] --env [env-name]
     ![From Staging to Production](https://github.com/cdan/vfsi-hol/blob/master/pictures/jx-s-p.png)
