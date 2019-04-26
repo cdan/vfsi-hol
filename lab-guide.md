@@ -27,6 +27,9 @@ kubectl config view | grep namespace
 kubectl create sa test-sa -n YOUR_NAME
 kubectl get secret
 kubectl describe secret test-sa-token* -n YOUR_NAME
+
+// add new created sa as cluster-admin
+kubectl create clusterrolebinding buildrobot-binding --clusterrole=cluster-admin --serviceaccount=YOURNAMESPACE:test-sa
 ```
 copy the token for later usage.
 
