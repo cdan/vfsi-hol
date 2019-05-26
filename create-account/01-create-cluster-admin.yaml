@@ -1,0 +1,20 @@
+# Create a service account for Helm and grant the cluster admin role.
+# It is assumed that helm should be installed with this service account
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: tempadm 
+  namespace: default
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: tempadm
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: tempadm
+  namespace: default
