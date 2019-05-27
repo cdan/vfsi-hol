@@ -8,7 +8,8 @@ Lab 1：創建屬於自己的空間：這個Lab，我希望幫助SE都能夠做�
 2. 下載這個[檔案](https://github.com/cdan/vfsi-hol/blob/master/create-account/02-create-namespace-admin.yaml)
    * 置換裡面的namespace 為你上一步驟做出來的名稱空間，與
    * serviceaccount 為你想要的名稱(可換可不換)
-3. kubectl apply -f [第二步的檔案]
+   * 存成mynamespace.yaml
+3. kubectl apply -f mynamespace.yaml
 4. 透過export，設定兩個參數：
    * export namespace='your namespace'
    * export accountname='your service account name'
