@@ -12,7 +12,7 @@ Lab 1：創建屬於自己的空間：這個Lab，我希望幫助SE都能夠做�
 4. 透過export，設定兩個參數：
    * export namespace='your namespace'
    * export accountname='your service account name'
-5. 執行create-kubeconfig.sh 產生對應的kubeconfig檔案。並置換之前下載於~/.kube/config那個。你就完成了以後個人專屬的namespace
+5. 執行[create-kubeconfig.sh](https://github.com/cdan/vfsi-hol/blob/master/create-account/create-kubeconfig.sh) 產生對應的kubeconfig檔案。並置換之前下載於~/.kube/config那個。你就完成了以後個人專屬的namespace
 6. 來跑個程式玩玩看：
    * kubectl run nginx --image nginx
    * kubectl expose deployment nginx --type=LoadBalancer --port=80
