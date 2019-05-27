@@ -11,7 +11,7 @@
 * 這是一個clusteradmin的帳號，收到該帳號，即可連線vke cluster
 * 嘗試 kubectl get pods --all-namespaces，你應該可以看到不少Pods
 2. 創建一個自己的名稱空間(NameSpace)：kubectl create namespace [your-name]
-3. 下載這個[檔案](https://github.com/cdan/vfsi-hol/blob/master/create-account/02-create-namespace-admin.yaml)
+3. 確認剛剛目錄底下，有02-create-namespace-admin.yaml檔案，請打開編輯器進入該檔案：
    * 置換裡面的namespace 為你上一步驟做出來的名稱空間，與
    * serviceaccount 為你想要的名稱(可換可不換)
    * 存成mynamespace.yaml
