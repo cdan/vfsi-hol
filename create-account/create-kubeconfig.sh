@@ -1,4 +1,4 @@
-
+#!/bin/bash
 # the name of the secret containing the service account token goes here
 name=$(kubectl get secrets -n $namespace | grep $accountname | awk '{print $1}')
 # Use the existing kubeconfig server information

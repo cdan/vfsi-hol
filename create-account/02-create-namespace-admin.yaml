@@ -9,8 +9,8 @@ metadata:
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: Role
 metadata:
-  namespace: shawnho 
-  name: shawnho-role
+  namespace: shawnho
+  name: namespace-admin-role
 rules:
 - apiGroups: ["*"]
   resources: ["*"]
@@ -24,7 +24,7 @@ metadata:
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: shawnho-role
+  name: namespace-admin-role
 subjects:
 - kind: ServiceAccount
   name: nsadmin
