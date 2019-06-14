@@ -16,6 +16,9 @@ spec:
         image: shawnho1976/gowebapp:v1.1
         ports:
         - containerPort: 80
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: mypassword
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -34,7 +37,7 @@ spec:
       - name: database
         env:
         - name: MYSQL_ROOT_PASSWORD
-          value: "mypassword"
+          value: mypassword
         image: shawnho1976/gowebapp-sql:v1.0
         ports:
         - containerPort: 3306
