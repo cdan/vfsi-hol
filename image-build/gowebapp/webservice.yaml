@@ -20,18 +20,18 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: database
+  name: gowebapp-sql
 spec:
   selector:
     matchLabels:
-      app: database
+      app: gowebapp-sql
   template:
     metadata:
       labels:
-        app: database
+        app: gowebapp-sql
     spec:
       containers:
-      - name: database
+      - name: gowebapp-sql
         env:
         - name: MYSQL_ROOT_PASSWORD
           value: "VMware1!"
