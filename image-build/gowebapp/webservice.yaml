@@ -32,6 +32,9 @@ spec:
     spec:
       containers:
       - name: database
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "VMware1!"
         image: shawnho1976/gowebapp-sql:v1.0
         ports:
         - containerPort: 3306
