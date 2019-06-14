@@ -16,8 +16,6 @@ spec:
         image: shawnho1976/gowebapp:v1.1
         ports:
         - containerPort: 80
-        env:
-          - name: 
 ---
 apiVersion: apps/v1
 kind: Deployment
