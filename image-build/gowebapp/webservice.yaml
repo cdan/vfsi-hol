@@ -20,18 +20,18 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: gowebapp-sql
+  name: database
 spec:
   selector:
     matchLabels:
-      app: gowebapp-sql
+      app: database
   template:
     metadata:
       labels:
-        app: gowebapp-sql
+        app: database
     spec:
       containers:
-      - name: gowebapp-sql
+      - name: database
         env:
         - name: MYSQL_ROOT_PASSWORD
           value: "VMware1!"
@@ -51,4 +51,15 @@ spec:
   - port: 80
     targetPort: 80
 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gowebapp-sql
+spec:
+  selector:
+    app: database
+  ports:
+  - port: 3306
+    targetPort: 3306
 
