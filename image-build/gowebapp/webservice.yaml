@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: webserver
-        image: shawnho1976/gowebapp:v1.0
+        image: shawnho1976/gowebapp:v1.1
         ports:
         - containerPort: 80
 ---
