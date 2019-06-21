@@ -18,7 +18,7 @@
 8. docker push [docker.io accountname]/gowebapp:v1.0 & [docker.io accountname]/gowebapp-sql:v1.0
 ---
 休息一下，Lab2完成囉
-#### Lab 2：佈建程式在Docker
+#### Lab 3：佈建程式在Docker
 1. 建置docker虛擬網路：docker network create gowebapp
 2. 將剛剛佈建出來的服務，佈建在docker上：
 * mysql: 
@@ -26,7 +26,18 @@
 
 * gowebapp:
 ```docker run -p 9000:80 --net gowebapp -d --name gowebapp --hostname gowebapp gowebapp:v1```
-
-#### Lab 3：佈建程式在Cloud PKS上
+3. 打開瀏覽器，連接localhost:9000
+4. 驗證mysql database: 
+* ```docker exec -it gowebapp-mysql mysql -u root -pmypassword gowebapp```
+* 
+```
+#Simple SQL to navigate
+SHOW DATABASES;
+USE gowebapp;
+SHOW TABLES;
+SELECT * FROM <table_name>;
+exit;
+```
+#### Lab 4：佈建程式在Cloud PKS上
 1. 預先準備：請準備好Lab1中 所生成的./kube/config
 2. 編寫yaml檔，將App/DB連接起來：回到gowebapp的目錄下，開啟
