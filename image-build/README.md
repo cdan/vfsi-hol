@@ -29,7 +29,8 @@
 ```docker run -p 9000:80 --net gowebapp -d --name gowebapp --hostname gowebapp [docker-account-name]/gowebapp:v1```
 3. 打開瀏覽器，連接localhost:9000，嘗試申請幾個帳號
 4. 驗證mysql database: 
-* ```docker exec -it gowebapp-mysql mysql -u root -pmypassword gowebapp
+```
+docker exec -it gowebapp-mysql mysql -u root -pmypassword gowebapp
 SHOW DATABASES;
 USE gowebapp;
 SHOW TABLES;
