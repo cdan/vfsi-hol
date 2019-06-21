@@ -1,6 +1,5 @@
-#### 
-#### 學習目標：怎麼打造一個容器
-#### Lab 2：容器製作
+### 學習目標：怎麼打造一個容器
+### Lab 2：容器製作
 1. 準備環境：
 * 下載Docker：下載點與手冊 [Mac](https://docs.docker.com/v17.12/docker-for-mac/install/#install-and-run-docker-for-mac) [Windows](https://docs.docker.com/docker-for-windows/install/)
 * 註冊一個Docker.io帳號，[註冊點](https://hub.docker.com/)
@@ -18,7 +17,7 @@
 8. docker push [docker.io accountname]/gowebapp:v1.0 & [docker.io accountname]/gowebapp-sql:v1.0
 ---
 休息一下，Lab2完成囉
-#### Lab 3：佈建程式在Docker
+### Lab 3：佈建程式在Docker
 1. 建置docker虛擬網路：
 ```
 docker network create gowebapp
@@ -47,7 +46,7 @@ exit;
 ```
 docker rm -f gowebapp gowebapp-mysql
 ```
-#### Lab 4：佈建程式在Cloud PKS上
+### Lab 4：佈建程式在Cloud PKS上
 1. 預先準備：請準備好Lab1中 所生成的./kube/config
 2. 編寫yaml檔，用來佈建gowebapp-mysql。編寫練習檔案在
 3. 編寫yaml檔，佈建gowebapp，並連接上述佈建的db
