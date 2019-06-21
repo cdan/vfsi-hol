@@ -19,25 +19,29 @@
 ---
 休息一下，Lab2完成囉
 #### Lab 3：佈建程式在Docker
-1. 建置docker虛擬網路：docker network create gowebapp
+1. 建置docker虛擬網路：
+```docker network create gowebapp```
 2. 將剛剛佈建出來的服務，佈建在docker上：
 * mysql: 
-```docker run --net gowebapp --name gowebapp-mysql --hostname gowebapp-mysql -d -e MYSQL_ROOT_PASSWORD=mypassword gowebapp-mysql:v1```
+```docker run --net gowebapp --name gowebapp-mysql --hostname gowebapp-mysql -d -e MYSQL_ROOT_PASSWORD=mypassword [docker-account-name]/gowebapp-mysql:v1```
 
 * gowebapp:
-```docker run -p 9000:80 --net gowebapp -d --name gowebapp --hostname gowebapp gowebapp:v1```
-3. 打開瀏覽器，連接localhost:9000
+```docker run -p 9000:80 --net gowebapp -d --name gowebapp --hostname gowebapp [docker-account-name]/gowebapp:v1```
+3. 打開瀏覽器，連接localhost:9000，嘗試申請幾個帳號
 4. 驗證mysql database: 
-* ```docker exec -it gowebapp-mysql mysql -u root -pmypassword gowebapp```
-* 
-```
-#Simple SQL to navigate
+* ```docker exec -it gowebapp-mysql mysql -u root -pmypassword gowebapp
 SHOW DATABASES;
 USE gowebapp;
 SHOW TABLES;
 SELECT * FROM <table_name>;
 exit;
 ```
+5. 測試完畢，撤銷環境：
+```
+docker rm -f gowebapp gowebapp-mysql
+```
 #### Lab 4：佈建程式在Cloud PKS上
 1. 預先準備：請準備好Lab1中 所生成的./kube/config
-2. 編寫yaml檔，將App/DB連接起來：回到gowebapp的目錄下，開啟
+2. 編寫yaml檔，用來佈建gowebapp-mysql。編寫練習檔案在
+3. 編寫yaml檔，佈建gowebapp，並連接上述佈建的db
+4. 透過更改Service種類，測試一下Cluster IP, NodePort, 與LoadBalancer的不同 
