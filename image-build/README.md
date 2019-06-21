@@ -45,3 +45,5 @@ docker rm -f gowebapp gowebapp-mysql
 2. 編寫yaml檔，用來佈建gowebapp-mysql。編寫練習檔案在
 3. 編寫yaml檔，佈建gowebapp，並連接上述佈建的db
 4. 透過更改Service種類，測試一下Cluster IP, NodePort, 與LoadBalancer的不同 
+5. 測試完畢，撤銷環境：
+```kubectl delete -f gowebapp.yaml,mysql.yaml```
