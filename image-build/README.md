@@ -20,13 +20,19 @@
 休息一下，Lab2完成囉
 #### Lab 3：佈建程式在Docker
 1. 建置docker虛擬網路：
-```docker network create gowebapp```
+```
+docker network create gowebapp
+```
 2. 將剛剛佈建出來的服務，佈建在docker上：
 * mysql: 
-```docker run --net gowebapp --name gowebapp-mysql --hostname gowebapp-mysql -d -e MYSQL_ROOT_PASSWORD=mypassword [docker-account-name]/gowebapp-mysql:v1```
+```
+docker run --net gowebapp --name gowebapp-mysql --hostname gowebapp-mysql -d -e MYSQL_ROOT_PASSWORD=mypassword [docker-account-name]/gowebapp-mysql:v1
+```
 
 * gowebapp:
-```docker run -p 9000:80 --net gowebapp -d --name gowebapp --hostname gowebapp [docker-account-name]/gowebapp:v1```
+```
+docker run -p 9000:80 --net gowebapp -d --name gowebapp --hostname gowebapp [docker-account-name]/gowebapp:v1
+```
 3. 打開瀏覽器，連接localhost:9000，嘗試申請幾個帳號
 4. 驗證mysql database: 
 ```
@@ -47,4 +53,6 @@ docker rm -f gowebapp gowebapp-mysql
 3. 編寫yaml檔，佈建gowebapp，並連接上述佈建的db
 4. 透過更改Service種類，測試一下Cluster IP, NodePort, 與LoadBalancer的不同 
 5. 測試完畢，撤銷環境：
-```kubectl delete -f gowebapp.yaml,mysql.yaml```
+```
+kubectl delete -f gowebapp.yaml,mysql.yaml
+```
