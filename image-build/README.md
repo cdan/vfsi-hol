@@ -29,7 +29,8 @@ docker login docker.io
 依照提示輸入帳密。
 8. 推送Image到Docker.io
 ``` 
-docker push [docker.io accountname]/gowebapp:v1.0 & [docker.io accountname]/gowebapp-mysql:v1.0
+docker push [docker.io accountname]/gowebapp:v1.0 
+docker ush [docker.io accountname]/gowebapp-mysql:v1.0
 ```
 ---
 休息一下，Lab2完成囉
@@ -41,12 +42,12 @@ docker network create gowebapp
 2. 將剛剛佈建出來的服務，佈建在docker上：
 * mysql: 
 ```
-docker run --net gowebapp --name gowebapp-mysql --hostname gowebapp-mysql -d -e MYSQL_ROOT_PASSWORD=mypassword [docker-account-name]/gowebapp-mysql:v1
+docker run --net gowebapp --name gowebapp-mysql --hostname gowebapp-mysql -d -e MYSQL_ROOT_PASSWORD=mypassword [docker-account-name]/gowebapp-mysql:v1.0
 ```
 
 * gowebapp:
 ```
-docker run -p 9000:80 --net gowebapp -d --name gowebapp --hostname gowebapp [docker-account-name]/gowebapp:v1
+docker run -p 9000:80 --net gowebapp -d --name gowebapp --hostname gowebapp [docker-account-name]/gowebapp:v1.0
 ```
 3. 打開瀏覽器，連接localhost:9000，嘗試申請幾個帳號
 4. 驗證mysql database: 
