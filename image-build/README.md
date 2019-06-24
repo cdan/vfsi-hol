@@ -6,15 +6,31 @@
 * 安裝Git: [Git安裝](https://gitbook.tw/chapters/environment/install-git-in-mac.html)
 * 了解容器![Image架構](https://github.com/cdan/vfsi-hol/blob/master/pictures/container-image.png)
 
-2. 下載本目錄： ```git clone https://github.com/cdan/vfsi-hol.git```
+2. 下載本目錄： 
+```
+git clone https://github.com/cdan/vfsi-hol.git
+```
 3. 下載網站Binary [gowebapp](https://s3.eu-central-1.amazonaws.com/heptio-edu-static/foundations/gowebapp.tar.gz) ，並將gowebapp解開後，將gowebapp/gowebapp-mysql檔案夾的內容，拷貝到步驟2中的gowebapp/gowebapp-sql檔案夾中。
 4. 使用瀏覽器，登入docker.io網站，創建兩個Repositories：gowebapp和gowebapp-mysql
-5. 到gowebapp檔案夾下，編輯對應的Dockerfile，並透過docker build . -t [docker.io accountname]/gowebapp:v1.0 
-5-1. 透過docker images，確認[docker.io accountname]/gowebapp:v1.0已經出現
-6. 到gowebapp-mysql檔案夾下，編輯對應的Dockerfile，並透過docker build . -t [docker.io accountname]/gowebapp-mysql:v1.0
-6-1. 透過docker images，確認[docker.io accountname]/gowebapp-mysql:v1.0已經出現
-7. 在Terminal上，登入docker.io: docker login docker.io ，依照提示輸入帳密。
-8. docker push [docker.io accountname]/gowebapp:v1.0 & [docker.io accountname]/gowebapp-mysql:v1.0
+5. 到gowebapp檔案夾下，編輯對應的Dockerfile，並透過
+```
+docker build . -t [docker.io accountname]/gowebapp:v1.0 
+```
+* 透過docker images，確認[docker.io accountname]/gowebapp:v1.0已經出現
+6. 到gowebapp-mysql檔案夾下，編輯對應的Dockerfile，並透過
+```
+docker build . -t [docker.io accountname]/gowebapp-mysql:v1.0
+```
+* 透過docker images，確認[docker.io accountname]/gowebapp-mysql:v1.0已經出現
+7. 在Terminal上，登入docker.io: 
+```
+docker login docker.io
+``` 
+依照提示輸入帳密。
+8. 推送Image到Docker.io
+``` 
+docker push [docker.io accountname]/gowebapp:v1.0 & [docker.io accountname]/gowebapp-mysql:v1.0
+```
 ---
 休息一下，Lab2完成囉
 ### Lab 3：佈建程式在Docker
